@@ -10,25 +10,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="@dimen/_78sdp"
-            android:layout_height="@dimen/_78sdp"
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/_19sdp"
             android:layout_marginEnd="@dimen/_40sdp"
             android:layout_marginRight="@dimen/_40sdp"
-            android:src="@mipmap/placeholder_acc_pic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:ignore="MissingConstraints">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="@dimen/_78sdp"
+                android:layout_height="@dimen/_78sdp"
+                android:src="@mipmap/placeholder_acc_pic"
+                 />
+            <ImageView
+                android:id="@+id/iv_edit_profile"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_profile_pic_edit_icon"
+                android:layout_gravity="bottom|right"
+               />
 
-        <ImageView
-            android:id="@+id/iv_edit_profile"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:src="@drawable/ic_profile_pic_edit_icon"
-            tools:layout_editor_absoluteX="335dp"
-            tools:layout_editor_absoluteY="102dp"
-            tools:ignore="MissingConstraints" />
+        </FrameLayout>
+
+
 
 
         <TextView
@@ -45,7 +53,7 @@
             android:text="I am a"
             android:textColor="@color/text_main_color"
             android:textSize="@dimen/_10ssp"
-            app:layout_constraintEnd_toStartOf="@+id/iv_profile"
+            app:layout_constraintEnd_toStartOf="@+id/frame_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
