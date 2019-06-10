@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Medicare</string>
+    <string name="medicare">MediCare</string>
+    <string name="main_text">first personal health record</string>
+    <string name="done">Done</string>
+    <string name="login_in_with_gmail">LOGIN IN WITH GMAIL</string>
+    <string name="login_in_with_facebook">LOGIN IN WITH FACEBOOK</string>
+    <string name="login_in_with_face_id">LOGIN IN WITH FACE ID</string>
     <string-array name="languages_entities">
         <item>English</item>
         <item>العربية</item>

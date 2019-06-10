@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.LoginActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:src="@drawable/ic_medi_care_logo"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_80sdp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="#008080"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/medicare"
+        />
+
+    <TextView
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/login_in_with_gmail"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/ic_google"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/login_in_with_facebook"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/ic_facebook"/>
+    <TextView
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/login_in_with_face_id"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/ic_face_id"/>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_16sdp">
+
+        <EditText
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_39sdp"
+            android:layout_gravity="center"
+            android:background="@mipmap/field"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_2ssp"
+            android:textColor="#000000"
+            android:textSize="@dimen/_12ssp"
+            android:hint="Name" />
+
+        <ImageView
+            android:layout_width="@dimen/_9sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:src="@drawable/ic_name_icon" />
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <EditText
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_39sdp"
+            android:layout_gravity="center"
+            android:background="@mipmap/field"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_2ssp"
+            android:textColor="#000000"
+            android:textSize="@dimen/_12ssp"
+            android:inputType="numberPassword"
+            android:hint="Password" />
+
+        <ImageView
+            android:layout_width="@dimen/_9sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:src="@drawable/ic_password_icon" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnSignUp"
+            android:text="Sign Up"
+            android:layout_marginLeft="@dimen/_39sdp"
+            android:layout_width="@dimen/_100sdp"
+            android:background="@drawable/shape_oval_white"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btnLogIn"
+            android:text="Log In"
+            android:layout_marginLeft="@dimen/_22sdp"
+            android:textColor="@color/white"
+            android:layout_width="@dimen/_100sdp"
+            android:background="@drawable/shape_oval"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>
