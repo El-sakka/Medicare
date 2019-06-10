@@ -106,6 +106,8 @@
 
     <LinearLayout
         android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:weightSum="2"
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -115,16 +117,19 @@
             android:id="@+id/btnSignUp"
             android:text="Sign Up"
             android:layout_marginLeft="@dimen/_39sdp"
-            android:layout_width="@dimen/_100sdp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:background="@drawable/shape_oval_white"
             android:layout_height="wrap_content" />
         <Button
             android:layout_gravity="center_horizontal"
             android:id="@+id/btnLogIn"
             android:text="Log In"
+            android:layout_marginRight="@dimen/_39sdp"
             android:layout_marginLeft="@dimen/_22sdp"
             android:textColor="@color/white"
-            android:layout_width="@dimen/_100sdp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:background="@drawable/shape_oval"
             android:layout_height="wrap_content" />
     </LinearLayout>
