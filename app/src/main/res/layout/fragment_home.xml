@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_home_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="home" />
-</FrameLayout>
+        android:layout_height="0dp"
+        android:layout_weight="0.92"/>
+
+
+    <TextView
+        android:id="@+id/tv_add_item"
+        android:text="Add another specialty"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/ic_rectangle_35_color"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.08"/>
+</LinearLayout>

@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:cursorVisible="false"
             android:layout_marginLeft="@dimen/_8sdp"
             android:id="@+id/et_search"
             android:layout_marginTop="@dimen/_2sdp"
