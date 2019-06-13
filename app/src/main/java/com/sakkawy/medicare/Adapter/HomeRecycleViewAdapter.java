@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ValueEventListener;
+import com.sakkawy.medicare.Model.Folder;
 import com.sakkawy.medicare.Model.ItemHome;
 import com.sakkawy.medicare.R;
 
@@ -18,10 +19,10 @@ import java.util.List;
 public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleViewAdapter.ViewHolder> {
 
     private Context context;
-    private List<ItemHome> mList;
+    private List<Folder> mList;
     private ItemClickListener mItemClickListener;
 
-    public HomeRecycleViewAdapter(Context context, ItemClickListener mItemClickListener, List<ItemHome> mList){
+    public HomeRecycleViewAdapter(Context context, ItemClickListener mItemClickListener, List<Folder> mList){
         this.context = context;
         this.mItemClickListener = mItemClickListener;
         this.mList = mList;
@@ -36,8 +37,8 @@ public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleView
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.ivIcon.setImageResource(mList.get(i).getIconId());
-        viewHolder.tvTextMenu.setText(mList.get(i).getText());
+        viewHolder.ivIcon.setImageResource(R.drawable.ic_person_24dp);
+        viewHolder.tvTextMenu.setText(mList.get(i).getFolderName());
     }
 
     @Override
@@ -60,12 +61,12 @@ public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleView
 
         @Override
         public void onClick(View v) {
-            ItemHome itemHome = mList.get(getAdapterPosition());
-            mItemClickListener.onItemClickListener(itemHome);
+            Folder folder = mList.get(getAdapterPosition());
+            mItemClickListener.onItemClickListener(folder);
         }
     }
 
     public interface ItemClickListener{
-        void onItemClickListener(ItemHome itemHome);
+        void onItemClickListener(Folder folder);
     }
 }
