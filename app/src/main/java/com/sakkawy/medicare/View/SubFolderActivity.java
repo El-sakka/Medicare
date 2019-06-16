@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +42,13 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
     List<Folder> mList = new ArrayList<>();
 
 
+    private boolean fabExpanded = false;
+    private FloatingActionButton fabAdd;
+    private LinearLayout layoutFabAddFolder;
+    private LinearLayout layoutFabSaveImage;
+    private LinearLayout layoutFabSavePres;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,23 +60,62 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
 
         dbFolder = FirebaseDatabase.getInstance().getReference().child("FolderCollection");
 
-        fbAddSubFolder = findViewById(R.id.fb_add_folder);
-        mRecyclerView = findViewById(R.id.rv_sub_folders);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        fabAdd = this.findViewById(R.id.fabMain);
+        layoutFabAddFolder = this.findViewById(R.id.layoutFabSaveFolder);
+        layoutFabSaveImage = this.findViewById(R.id.layoutFabSaveImage);
+        layoutFabSavePres = this.findViewById(R.id.layoutFabSavePrescription);
 
-        adapter = new HomeRecycleViewAdapter(this, this,mList);
-        mRecyclerView.setAdapter(adapter);
 
-        fbAddSubFolder.setOnClickListener(new View.OnClickListener() {
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(fabExpanded == true){
+                    closeSubMenusFab();
+                }else{
+                    openSubMenusFab();
+                }
+            }
+        });
+
+        layoutFabAddFolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addItem();
             }
         });
 
+        mRecyclerView = findViewById(R.id.rv_sub_folders);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        adapter = new HomeRecycleViewAdapter(this, this,mList);
+        mRecyclerView.setAdapter(adapter);
+
+//        fbAddSubFolder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                addItem();
+//            }
+//        });
+
+        closeSubMenusFab();
         updateFolders();
 
+    }
+
+    private void closeSubMenusFab(){
+        layoutFabSavePres.setVisibility(View.INVISIBLE);
+        layoutFabAddFolder.setVisibility(View.INVISIBLE);
+        layoutFabSaveImage.setVisibility(View.INVISIBLE);
+        fabAdd.setImageResource(R.drawable.ic_add_24dp);
+        fabExpanded = false;
+    }
+
+    private void openSubMenusFab(){
+        layoutFabSavePres.setVisibility(View.VISIBLE);
+        layoutFabAddFolder.setVisibility(View.VISIBLE);
+        layoutFabSaveImage.setVisibility(View.VISIBLE);
+        fabAdd.setImageResource(R.drawable.ic_done_24dp);
+        fabExpanded = true;
     }
 
     private void updateFolders(){

@@ -16,4 +16,7 @@
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
     <string name="error">Error</string>
+    <string name="save_folder">Save Folder</string>
+    <string name="save_image">Save Image</string>
+    <string name="save_prescription">Save Prescription</string>
 </resources>
