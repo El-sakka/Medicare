@@ -89,14 +89,6 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
 
         adapter = new HomeRecycleViewAdapter(this, this,mList);
         mRecyclerView.setAdapter(adapter);
-
-//        fbAddSubFolder.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                addItem();
-//            }
-//        });
-
         closeSubMenusFab();
         updateFolders();
 

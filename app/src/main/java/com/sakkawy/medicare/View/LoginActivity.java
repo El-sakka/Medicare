@@ -25,10 +25,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.sakkawy.medicare.Model.User;
 import com.sakkawy.medicare.R;
 
+import java.util.Map;
+
 import dmax.dialog.SpotsDialog;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
     Button btnSignUp , btnLogIn ;
     EditText etUserName,etPassword;
 
@@ -42,13 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        
 
         etUserName = findViewById(R.id.et_login_email);
         etPassword = findViewById(R.id.et_login_password);
         btnSignUp = findViewById(R.id.btnSignUp);
         btnLogIn = findViewById(R.id.btnLogIn);
         auth = FirebaseAuth.getInstance();
-        db = FirebaseDatabase.getInstance().getReference().child("Users");
 
         alertDialog = new SpotsDialog.Builder().setContext(LoginActivity.this).build();
 
@@ -65,25 +68,26 @@ public class LoginActivity extends AppCompatActivity {
                     etPassword.setError("Required");
                 }else{
                     alertDialog.show();
+
                     auth.signInWithEmailAndPassword(email,password)
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     alertDialog.dismiss();
                                     userId = authResult.getUser().getUid();
-                                    db.child(userId);
-                                    db.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    Log.d(TAG, "onClick: "+userId);
+                                    db = FirebaseDatabase.getInstance().getReference().child("Users").child(userId);
+                                    db.addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            if(dataSnapshot.exists()){
-                                                User user = dataSnapshot.getValue(User.class);
-                                                if(user.getUserType().equals("Patient")){
-                                                    // go to patient home
+                                            if(dataSnapshot.exists() && dataSnapshot.getChildrenCount() >0){
+                                                Map<String,Object> map = (Map<String,Object>) dataSnapshot.getValue();
+                                                Log.d(TAG, "onDataChange: "+map.get("userType").toString());
+                                                String userType = map.get("userType").toString();
+                                                if(userType.equals("Patient")){
                                                     Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                                                     startActivity(intent);
                                                 }else{
-                                                    // go to doctor home
-
                                                     Intent intent = new Intent(LoginActivity.this,DoctorHomeActivity.class);
                                                     startActivity(intent);
                                                 }
