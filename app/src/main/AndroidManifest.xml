@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.SubFolderActivity"></activity>
+        <activity android:name=".View.DoctorHomeActivity"></activity>
+        <activity android:name=".View.SubFolderActivity" />
         <activity
             android:name=".View.HomeActivity"
             android:windowSoftInputMode="adjustNothing" />
