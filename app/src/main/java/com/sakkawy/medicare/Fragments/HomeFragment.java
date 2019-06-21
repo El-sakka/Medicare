@@ -2,6 +2,7 @@ package com.sakkawy.medicare.Fragments;
 
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,7 +14,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sakkawy.medicare.Adapter.HomeRecycleViewAdapter;
+import com.sakkawy.medicare.Adapter.ItemAdapter;
 import com.sakkawy.medicare.Model.Folder;
 import com.sakkawy.medicare.Model.ItemHome;
 import com.sakkawy.medicare.R;
@@ -49,6 +53,8 @@ public class HomeFragment extends Fragment implements HomeRecycleViewAdapter.Ite
     DatabaseReference dbFolder;
     String currentUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+
+    List<ItemHome> itemHomeList = new ArrayList<>();
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -75,16 +81,22 @@ public class HomeFragment extends Fragment implements HomeRecycleViewAdapter.Ite
         mRecyclerView.setAdapter(adapter);
 
 
+
         tvAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem();
 
+
+                addItem();
             }
         });
 
         updateFolders();
     }
+
+
+
+
 
 
     private void updateFolders(){
@@ -125,7 +137,9 @@ public class HomeFragment extends Fragment implements HomeRecycleViewAdapter.Ite
         updateDialogView.findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 EditText itemEditText = updateDialogView.findViewById(R.id.tv_item_name);
+
                 final String folderName = itemEditText.getText().toString();
                 if (folderName.isEmpty()) {
                     itemEditText.setError(getActivity().getResources().getString(R.string.error));
