@@ -2,12 +2,12 @@ package com.sakkawy.medicare.View;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sakkawy.medicare.Adapter.HomeRecycleViewAdapter;
-import com.sakkawy.medicare.Fragments.HomeFragment;
 import com.sakkawy.medicare.Model.Folder;
+import com.sakkawy.medicare.Model.SpecailityItem;
 import com.sakkawy.medicare.R;
 
 import java.util.ArrayList;
@@ -63,7 +63,6 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
         fabAdd = this.findViewById(R.id.fabMain);
         layoutFabAddFolder = this.findViewById(R.id.layoutFabSaveFolder);
         layoutFabSaveImage = this.findViewById(R.id.layoutFabSaveImage);
-        layoutFabSavePres = this.findViewById(R.id.layoutFabSavePrescription);
 
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -87,15 +86,14 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
         mRecyclerView = findViewById(R.id.rv_sub_folders);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new HomeRecycleViewAdapter(this, this,mList);
+       /* adapter = new HomeRecycleViewAdapter(this, this,mList);
         mRecyclerView.setAdapter(adapter);
         closeSubMenusFab();
-        updateFolders();
+        updateFolders();*/
 
     }
 
     private void closeSubMenusFab(){
-        layoutFabSavePres.setVisibility(View.INVISIBLE);
         layoutFabAddFolder.setVisibility(View.INVISIBLE);
         layoutFabSaveImage.setVisibility(View.INVISIBLE);
         fabAdd.setImageResource(R.drawable.ic_add_24dp);
@@ -103,7 +101,6 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
     }
 
     private void openSubMenusFab(){
-        layoutFabSavePres.setVisibility(View.VISIBLE);
         layoutFabAddFolder.setVisibility(View.VISIBLE);
         layoutFabSaveImage.setVisibility(View.VISIBLE);
         fabAdd.setImageResource(R.drawable.ic_done_24dp);
@@ -174,11 +171,11 @@ public class SubFolderActivity extends AppCompatActivity implements HomeRecycleV
     }
 
     @Override
-    public void onItemClickListener(Folder folder) {
-        Intent intent = new Intent(SubFolderActivity.this,SubFolderActivity.class);
-        intent.putExtra(SubFolderActivity.KEY,folder.getFolderId());
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        Toast.makeText(SubFolderActivity.this,folder.getFolderName(),Toast.LENGTH_SHORT).show();
+    public void onItemClickListener(SpecailityItem folder) {
+//        Intent intent = new Intent(SubFolderActivity.this,SubFolderActivity.class);
+//        intent.putExtra(SubFolderActivity.KEY,folder.getFolderId());
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        startActivity(intent);
+//        Toast.makeText(SubFolderActivity.this,folder.getFolderName(),Toast.LENGTH_SHORT).show();
     }
 }

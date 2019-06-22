@@ -1,8 +1,8 @@
 package com.sakkawy.medicare.View;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -77,24 +77,26 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     }
 
-//    private void status(String status){
-//        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
-//                .child(userId);
-//        HashMap<String,Object> hashMap = new HashMap<>();
-//        hashMap.put("Status",status);
-//        reference.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        status("online");
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        status("offline");
-//    }
+    private void status(String status){
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(userId);
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("Status",status);
+        reference.updateChildren(hashMap);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        status("online");
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        status("offline");
+
+    }
 }

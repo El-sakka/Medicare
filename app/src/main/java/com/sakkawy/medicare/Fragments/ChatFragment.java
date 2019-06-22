@@ -2,12 +2,12 @@ package com.sakkawy.medicare.Fragments;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +19,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.sakkawy.medicare.Adapter.ChatAdapter;
 import com.sakkawy.medicare.Model.Chat;
 import com.sakkawy.medicare.Model.User;
+import com.sakkawy.medicare.Notifications.Token;
 import com.sakkawy.medicare.R;
 
 import java.util.ArrayList;
@@ -90,6 +92,15 @@ public class ChatFragment extends Fragment {
 
             }
         });
+
+        updateToken(FirebaseInstanceId.getInstance().getToken());
+    }
+
+
+    private void updateToken(String token){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Tokens");
+        Token token1 = new Token(token);
+        reference.child(fUser.getUid()).setValue(token1);
     }
 
     private void readChats() {

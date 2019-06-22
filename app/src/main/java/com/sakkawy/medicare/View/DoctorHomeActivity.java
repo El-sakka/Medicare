@@ -1,20 +1,15 @@
 package com.sakkawy.medicare.View;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.sakkawy.medicare.Adapter.DoctorViewPagerAdapter;
 import com.sakkawy.medicare.Fragments.ChatFragment;
 import com.sakkawy.medicare.Fragments.MedicineFragment;
 import com.sakkawy.medicare.Fragments.PatientFragment;
 import com.sakkawy.medicare.R;
-
-import java.util.HashMap;
 
 public class DoctorHomeActivity extends AppCompatActivity {
 

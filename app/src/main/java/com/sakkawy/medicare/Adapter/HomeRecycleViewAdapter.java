@@ -1,17 +1,16 @@
 package com.sakkawy.medicare.Adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.ValueEventListener;
 import com.sakkawy.medicare.Model.Folder;
-import com.sakkawy.medicare.Model.ItemHome;
+import com.sakkawy.medicare.Model.SpecailityItem;
 import com.sakkawy.medicare.R;
 
 import java.util.List;
@@ -19,10 +18,10 @@ import java.util.List;
 public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleViewAdapter.ViewHolder> {
 
     private Context context;
-    private List<Folder> mList;
+    private List<SpecailityItem> mList;
     private ItemClickListener mItemClickListener;
 
-    public HomeRecycleViewAdapter(Context context, ItemClickListener mItemClickListener, List<Folder> mList){
+    public HomeRecycleViewAdapter(Context context, ItemClickListener mItemClickListener, List<SpecailityItem> mList){
         this.context = context;
         this.mItemClickListener = mItemClickListener;
         this.mList = mList;
@@ -37,8 +36,8 @@ public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleView
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.ivIcon.setImageResource(R.drawable.ic_person_24dp);
-        viewHolder.tvTextMenu.setText(mList.get(i).getFolderName());
+        viewHolder.ivIcon.setImageResource(mList.get(i).getIcon());
+        viewHolder.tvTextMenu.setText(mList.get(i).getName());
     }
 
     @Override
@@ -61,12 +60,12 @@ public class HomeRecycleViewAdapter extends RecyclerView.Adapter<HomeRecycleView
 
         @Override
         public void onClick(View v) {
-            Folder folder = mList.get(getAdapterPosition());
-            mItemClickListener.onItemClickListener(folder);
+            SpecailityItem item = mList.get(getAdapterPosition());
+            mItemClickListener.onItemClickListener(item);
         }
     }
 
     public interface ItemClickListener{
-        void onItemClickListener(Folder folder);
+        void onItemClickListener(SpecailityItem item);
     }
 }
