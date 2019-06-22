@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".View.DisplayPatientInformation">
 
     <ExpandableListView
+        android:background="@drawable/oval_expand_list"
+        android:layout_margin="@dimen/_12sdp"
         android:id="@+id/exp_lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </ExpandableListView>
 
 </LinearLayout>

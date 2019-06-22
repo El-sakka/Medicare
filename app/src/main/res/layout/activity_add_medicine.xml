@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"/>
 
             <Spinner
-                android:entries="@array/genders"
+                android:entries="@array/medicineUnits"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"/>
 
             <Spinner
-                android:entries="@array/genders"
+                android:entries="@array/medicineUnits"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
@@ -123,10 +123,10 @@
                 android:layout_height="wrap_content"/>
 
             <Spinner
-                android:entries="@array/genders"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/medicineUnits" />
 
             <Spinner
                 android:entries="@array/genders"

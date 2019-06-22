@@ -14,7 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.HomeActivity"></activity>
+        <activity android:name=".View.PateintHomeInfo"></activity>
+        <activity android:name=".View.AddNewPrecription" />
+        <activity android:name=".View.DisplayDoctorPrescritions" />
+        <activity android:name=".View.AddMedicineActivity" />
+        <activity android:name=".View.addEventActivity" />
+        <activity android:name=".View.settings" />
+        <activity android:name=".View.DoctorHomeActivity" />
+        <activity android:name=".View.SubFolderActivity" />
+        <activity
+            android:name=".View.HomeActivity"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".View.RegistrationActivity" />
         <activity android:name=".View.LoginActivity" />
         <activity android:name=".MainActivity">

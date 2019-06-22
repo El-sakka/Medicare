@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#8F000000"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.PateintHomeInfo">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_75sdp"
+        android:background="@drawable/popup_layout"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_10sdp">
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/_12sdp"
+            tools:ignore="MissingConstraints">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="@dimen/_78sdp"
+                android:layout_height="@dimen/_78sdp"
+                android:src="@mipmap/placeholder_acc_pic" />
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User name"
+            android:textColor="#707070"
+            android:textSize="@dimen/_15sdp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_keyboard_arrow_down_24dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="23 yrs"
+                android:textSize="@dimen/_11sdp" />
+
+        </LinearLayout>
+
+        <ExpandableListView
+            android:id="@+id/info_drug_allergies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ExpandableListView>
+
+        <ExpandableListView
+            android:id="@+id/info_food_allergies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ExpandableListView>
+
+        <ExpandableListView
+            android:id="@+id/info_treatment_pref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ExpandableListView>
+
+        <ExpandableListView
+            android:id="@+id/info_long_term_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ExpandableListView>
+
+        <ExpandableListView
+            android:id="@+id/info_disability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ExpandableListView>
+
+    </LinearLayout>
+</LinearLayout>

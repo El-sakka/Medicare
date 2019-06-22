@@ -124,6 +124,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_oval_white"
             android:layout_height="wrap_content" />
+
         <Button
             android:layout_gravity="center_horizontal"
             android:id="@+id/btnLogIn"
