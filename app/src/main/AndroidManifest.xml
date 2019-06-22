@@ -14,11 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.DisplayPatientInformation"></activity>
-        <activity android:name=".View.AddMedicineActivity"></activity>
-        <activity android:name=".View.addEventActivity" />
-        <activity android:name=".View.settings" />
-        <activity android:name=".View.HomeActivity" />
+        <activity android:name=".View.HomeActivity"></activity>
         <activity android:name=".View.RegistrationActivity" />
         <activity android:name=".View.LoginActivity" />
         <activity android:name=".MainActivity">
