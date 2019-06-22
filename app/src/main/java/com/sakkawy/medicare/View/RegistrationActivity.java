@@ -71,7 +71,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnDataPas
     private DatePickerDialog.OnDateSetListener date;
     
     String userId;
-    String imageUri;
+    String imageUri = "default";
 
     FragmentTransaction mFragmentTransaction;
 
@@ -249,6 +249,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnDataPas
                                 public void onSuccess(AuthResult authResult) {
                                     mAlertDialog.show();
                                     userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                    user.setUserId(userId);
                                     saveImage(user);
 
                                 }
