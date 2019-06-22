@@ -84,6 +84,7 @@
                 android:padding="@dimen/_11sdp">
 
                 <Spinner
+                    android:id="@+id/medicine_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:entries="@array/genders"
