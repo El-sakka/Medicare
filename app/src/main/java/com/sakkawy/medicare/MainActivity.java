@@ -7,7 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.sakkawy.medicare.View.AddMedicineActivity;
+import com.sakkawy.medicare.View.AddNewPrecription;
+import com.sakkawy.medicare.View.DisplayDoctorPrescritions;
 import com.sakkawy.medicare.View.LoginActivity;
+import com.sakkawy.medicare.View.PateintHomeInfo;
+import com.sakkawy.medicare.View.addEventActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//                Intent intent = new Intent(MainActivity.this , LoginActivity.class) ;
+                Intent intent = new Intent(MainActivity.this , PateintHomeInfo.class) ;
                 startActivity(intent);
             }
         });

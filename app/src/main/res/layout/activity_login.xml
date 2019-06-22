@@ -59,6 +59,7 @@
         android:layout_marginTop="@dimen/_16sdp">
 
         <EditText
+            android:id="@+id/et_login_email"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="@dimen/_39sdp"
             android:layout_gravity="center"
@@ -67,7 +68,8 @@
             android:lineSpacingExtra="@dimen/_2ssp"
             android:textColor="#000000"
             android:textSize="@dimen/_12ssp"
-            android:hint="Name" />
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
 
         <ImageView
             android:layout_width="@dimen/_9sdp"
@@ -84,6 +86,7 @@
         android:layout_marginTop="@dimen/_10sdp">
 
         <EditText
+            android:id="@+id/et_login_password"
             android:layout_width="@dimen/_220sdp"
             android:layout_height="@dimen/_39sdp"
             android:layout_gravity="center"
@@ -121,6 +124,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_oval_white"
             android:layout_height="wrap_content" />
+
         <Button
             android:layout_gravity="center_horizontal"
             android:id="@+id/btnLogIn"

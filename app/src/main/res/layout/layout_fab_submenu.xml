@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/fabFrame"
+    android:layout_margin="@dimen/_12sdp">
+
+    <LinearLayout
+        android:id="@+id/layoutFabSavePrescription"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="@dimen/_6sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_122sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_margin="@dimen/_4sdp"
+            android:layout_gravity="center"
+            android:text="@string/save_prescription"
+            android:id="@+id/tv_savePrescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.FloatingActionButton
+            android:layout_gravity="center"
+
+            android:id="@+id/fabSavePrescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/text_main_color"
+            android:src="@drawable/ic_insert_file_24dp"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:id="@+id/layoutFabSaveImage"
+        android:layout_marginBottom="@dimen/_88sdp"
+        android:layout_marginRight="@dimen/_6sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="@string/save_image"
+            android:id="@+id/tv_saveFolder"
+            android:layout_margin="@dimen/_4sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.FloatingActionButton
+            android:layout_gravity="center"
+
+            android:id="@+id/fabSaveFolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/text_main_color"
+            android:src="@drawable/ic_image_white_24dp"
+            app:fabSize="mini"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutFabSaveFolder"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="@dimen/_6sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_54sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_margin="@dimen/_4sdp"
+            android:layout_gravity="center"
+            android:text="@string/save_folder"
+            android:id="@+id/tv_saveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <android.support.design.widget.FloatingActionButton
+            android:layout_gravity="center"
+
+            android:id="@+id/fabSaveImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/text_main_color"
+            android:src="@drawable/ic_create_new_folder_black_24dp"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/layoutFabMain"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_gravity="center"
+            android:id="@+id/fabMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/text_main_color"
+            android:src="@drawable/ic_add_24dp"
+            app:fabSize="normal"/>
+    </LinearLayout>
+</FrameLayout>
