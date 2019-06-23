@@ -18,6 +18,13 @@
         <activity android:name=".View.DetailActivity"></activity>
         <activity android:name=".View.SubActivity" />
         <activity android:name=".View.MessageActivity" />
+        <activity android:name=".View.MessageActivity"></activity>
+        <activity android:name=".View.PateintHomeInfo"></activity>
+        <activity android:name=".View.AddNewPrecription" />
+        <activity android:name=".View.DisplayDoctorPrescritions" />
+        <activity android:name=".View.AddMedicineActivity" />
+        <activity android:name=".View.AddEventActivity" />
+        <activity android:name=".View.SettingsActivity" />
         <activity android:name=".View.DoctorHomeActivity" />
         <activity android:name=".View.SubFolderActivity" />
         <activity

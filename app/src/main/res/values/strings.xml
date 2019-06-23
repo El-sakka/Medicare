@@ -10,6 +10,17 @@
         <item>English</item>
         <item>العربية</item>
     </string-array>
+
+    <string-array name="genders">
+        <item> Male </item>
+        <item> Female </item>
+    </string-array>
+
+    <string-array name="types">
+        <item> Medicine Time</item>
+        <item> Doctor Reservation</item>
+    </string-array>
+
     <string-array name="speciality">
         <item>Speciality</item>
         <item>1</item>
@@ -24,6 +35,32 @@
         <item>5</item>
         <item>5</item>
     </string-array>
+    
+    <string-array name="doses">
+        <item>-</item>
+        <item>10</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    
+    <string-array name="portions">
+        <item>-</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="medicineUnits">
+        <item>capsule</item>
+        <item>mlg</item>
+        <item>tablet</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -33,4 +70,5 @@
     <string name="save_folder">Save Folder</string>
     <string name="save_image">Save Image</string>
     <string name="save_prescription">Save Prescription</string>
+
 </resources>

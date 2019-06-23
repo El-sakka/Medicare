@@ -1,19 +1,25 @@
 package com.sakkawy.medicare.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sakkawy.medicare.R;
+import com.sakkawy.medicare.View.AddEventActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CalenderFragment extends Fragment {
 
+    FloatingActionButton fabAddEvent;
 
     public CalenderFragment() {
         // Required empty public constructor
@@ -27,4 +33,19 @@ public class CalenderFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_calender, container, false);
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        fabAddEvent = getActivity().findViewById(R.id.fab_add_event);
+
+        fabAddEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddEventActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 }

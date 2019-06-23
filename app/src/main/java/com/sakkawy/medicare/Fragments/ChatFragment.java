@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,9 @@ import com.sakkawy.medicare.Notifications.Token;
 import com.sakkawy.medicare.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +46,8 @@ public class ChatFragment extends Fragment {
 
     FirebaseUser fUser;
     DatabaseReference reference;
+
+    private Set<String> setUsers = new HashSet<>();
 
 
 
@@ -66,23 +71,27 @@ public class ChatFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         fUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        usersList= new ArrayList<>();
+        //usersList= new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference().child("Chat");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists() && dataSnapshot.getChildrenCount() > 0){
-                    usersList.clear();
+                    //usersList.clear();
+                    setUsers.clear();
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                         Chat chat = snapshot.getValue(Chat.class);
                         if(chat.getSender().equals(fUser.getUid())){
-                            usersList.add(chat.getReceiver());
+                            setUsers.add(chat.getReceiver());
+                           // usersList.add(chat.getReceiver());
                         }
                         if(chat.getReceiver().equals(fUser.getUid())){
-                            usersList.add(chat.getSender());
+                            //usersList.add(chat.getSender());
+                            setUsers.add(chat.getSender());
                         }
                     }
 
+                    Log.d(TAG, "set Size "+ setUsers.size());
                     readChats();
                 }
             }
@@ -106,6 +115,8 @@ public class ChatFragment extends Fragment {
     private void readChats() {
         mUsers = new ArrayList<>();
 
+        usersList = new ArrayList<>(setUsers);
+
         reference = FirebaseDatabase.getInstance().getReference().child("Users");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -115,11 +126,16 @@ public class ChatFragment extends Fragment {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                         User user = snapshot.getValue(User.class);
                         for(String id : usersList){
+                            Log.d(TAG, "userList size "+usersList.size());
                             if(user.getUserId().equals(id)){
                                 if(mUsers.size() != 0){
                                     for(User user1 : mUsers){
+
                                         if(!user.getUserId().equals(user1.getUserId())){
+                                            Log.d(TAG, "entered");
                                             mUsers.add(user);
+                                            Log.d(TAG, "user "+user.getUserId());
+                                            Log.d(TAG, "user1 "+user1.getUserId());
                                         }
                                     }
                                 }else{
@@ -139,6 +155,8 @@ public class ChatFragment extends Fragment {
 
             }
         });
+
+
     }
 
 

@@ -6,10 +6,20 @@
     tools:context=".Fragments.CalenderFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:gravity="center"
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_events"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Calender" />
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_event"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/_15sdp"
+        android:src="@drawable/ic_add_24dp"
+        android:backgroundTint="@color/text_main_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>

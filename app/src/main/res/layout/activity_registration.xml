@@ -20,12 +20,12 @@
             android:layout_marginEnd="@dimen/_40sdp"
             android:layout_marginRight="@dimen/_40sdp"
             tools:ignore="MissingConstraints">
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile"
                 android:layout_width="@dimen/_78sdp"
                 android:layout_height="@dimen/_78sdp"
-                android:src="@mipmap/placeholder_acc_pic"
-                 />
+                android:src="@mipmap/placeholder_acc_pic" />
             <ImageView
                 android:id="@+id/iv_edit_profile"
                 android:layout_width="@dimen/_20sdp"

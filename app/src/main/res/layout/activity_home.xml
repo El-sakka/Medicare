@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".View.HomeActivity">
     <include
+        android:id="@+id/header_setting"
         layout="@layout/header_layout"/>
     
     <com.google.android.material.tabs.TabLayout

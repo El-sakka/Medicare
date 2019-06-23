@@ -3,7 +3,11 @@ package com.sakkawy.medicare.View;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +27,9 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
     TabLayout tabLayout ;
     ViewPager viewPager ;
 
+    View view;
+    ImageView setting;
+
     private int[] tabIcons = {
             R.drawable.home_icon,
             R.drawable.ic_doctors_icon,
@@ -35,6 +42,17 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        view = findViewById(R.id.header_setting);
+        setting = view.findViewById(R.id.iv_setting);
+
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.viewPager);
